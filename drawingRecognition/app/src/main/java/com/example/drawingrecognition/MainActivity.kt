@@ -47,7 +47,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun makeInt(candidates: List<RecognitionCandidate>): String {
         for (candidate in candidates) {
-            if (isNumeric(candidate.text)) {
+            if (isNumeric(candidate.text)
+                || candidate.text.contains("-")
+                || candidate.text.contains(".")
+                || candidate.text.contains("+")) {
                 return candidate.text
             }
         }
